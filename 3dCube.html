@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>3D Image Gallery</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    nav {
+        position: fixed;
+        top: 5%;
+      }
+      li {
+        list-style: none;
+        display: inline-block;
+      }
+      a {
+        color: #fff;
+        opacity: 0.9;
+        display: block;
+        position: relative;
+        line-height: 1.25rem;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 0.9375rem 1.875rem;
+        transition: all 0.3s linear;
+      }
+      a:not(.active):hover .link-space {
+        transform: translateZ(-1.5625rem) rotateX(90deg);
+      }
+      .link-space {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        transition: all 0.3s ease-out;
+        transform-style: preserve-3d;
+      }
+      .fare {
+        transform: rotateX(0deg) translateZ(1.5625rem);
+      }
+      .backk {
+        transform: rotateX(-90deg) translateZ(1.5625rem);
+      }
+      .fare,
+      .backk {
+        width: 100%;
+        height: 100%;
+        color: #444;
+        display: block;
+        position: absolute;
+        background: #fff;
+        box-sizing: border-box;
+        padding: 0.9375rem 1.875rem;
+      }
+      nav li a:hover .fare,
+      nav li a:hover .backk {
+        color: #fff;
+        background-image: linear-gradient(215deg, #57606f 20%, #b45575 40%);
+        transition: 0.3s;
+        background-size: 0.3125rem 0.3125rem;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        background-image: linear-gradient(315deg, #750c54 0%, #57606f 74%);
+      }
+    .box {
+      margin-top: 20%;
+      align-items: center;
+      position: relative;
+      width: 200px;
+      height: 200px;
+      transform-style: preserve-3d;
+      transform: rotateX(45deg) rotateY(45deg);
+      animation: rotate 10s infinite linear;
+    }
+    @keyframes rotate {
+      from {
+        transform: rotateX(45deg) rotateY(45deg);
+      }
+      to {
+        transform: rotateX(45deg) rotateY(405deg);
+      }
+    }
+    .box div {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: #fff;
+      border: 1px solid #ccc;
+      transform-style: preserve-3d;
+    }
+    .front  { transform: rotateY(  0deg) translateZ(100px); }
+    .back   { transform: rotateY(180deg) translateZ(100px); }
+    .left   { transform: rotateY(-90deg) translateZ(100px); }
+    .right  { transform: rotateY( 90deg) translateZ(100px); }
+    .top    { transform: rotateX( 90deg) translateZ(100px); }
+    .bottom { transform: rotateX(-90deg) translateZ(100px); }
+    .box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+<li>
+  <a href="IsometricMenu.html">Home
+    <span class="link-space">
+      <span class="fare">Home</span>
+      <span class="backk">Home</span>
+    </span>
+  </a>
+</li>
+<li>
+  <a href="sodaBottle.html">3d Animation
+    <span class="link-space">
+      <span class="fare">3d Animation</span>
+      <span class="backk">3d Animation</span>
+    </span>
+  </a>
+</li>
+<li>
+  <a href="ImageSlider.html">Image Slider
+    <span class="link-space">
+      <span class="fare">Image Slider</span>
+      <span class="backk">Image Slider</span>
+    </span>
+  </a>
+</li>
+<li>
+  <a href="3dCube.html">3d Cube Effect
+    <span class="link-space">
+      <span class="fare">3d Cube Effect</span>
+      <span class="backk">3d Cube Effect</span>
+    </span>
+  </a>
+</li>
+  </nav>
+  <div class="box">
+    <div class="front"><img src="3dImageGallery/image1.jpg" alt="Image 1"></div>
+    <div class="back"><img src="3dImageGallery/image2.jpg" alt="Image 2"></div>
+    <div class="left"><img src="3dImageGallery/image3.jfif" alt="Image 3"></div>
+    <div class="right"><img src="3dImageGallery/image8.jpg" alt="Image 4"></div>
+    <div class="top"><img src="3dImageGallery/image5.jpg" alt="Image 5"></div>
+    <div class="bottom"><img src="3dImageGallery/image6.jpg" alt="Image 6"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #57606f;
+        overflow: hidden;
+      }
+      nav {
+        position: fixed;
+        top: 5%;
+        left: 30%;
+      }
+      li {
+        list-style: none;
+        display: inline-block;
+      }
+      a {
+        color: #fff;
+        opacity: 0.9;
+        display: block;
+        position: relative;
+        line-height: 1.25rem;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 0.9375rem 1.875rem;
+        transition: all 0.3s linear;
+      }
+      a:not(.active):hover .link-space {
+        transform: translateZ(-1.5625rem) rotateX(90deg);
+      }
+      .link-space {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        transition: all 0.3s ease-out;
+        transform-style: preserve-3d;
+      }
+      .fare {
+        transform: rotateX(0deg) translateZ(1.5625rem);
+      }
+      .backk {
+        transform: rotateX(-90deg) translateZ(1.5625rem);
+      }
+      .fare,
+      .backk {
+        width: 100%;
+        height: 100%;
+        color: #444;
+        display: block;
+        position: absolute;
+        background: #fff;
+        box-sizing: border-box;
+        padding: 0.9375rem 1.875rem;
+      }
+      nav li a:hover .fare,
+      nav li a:hover .backk {
+        color: #fff;
+        background-image: linear-gradient(215deg, #57606f 20%, #b45575 40%);
+        transition: 0.3s;
+        background-size: 0.3125rem 0.3125rem;
+      }
+      .container {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1000px;
+        height: 500px;
+        border-radius: 50px;
+        background-color: #f5f5f5;
+        box-shadow: 0 30px 50px #dbdbdb;
+      }
+      .container .slide .item {
+        width: 200px;
+        height: 300px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        border-radius: 20px;
+        box-shadow: 0 30px 50px #505050;
+        background-position: 50% 50%;
+        background-size: cover;
+        display: inline-block;
+        transition: 0.5s;
+      }
+      .slide .item:nth-child(1),
+      .slide .item:nth-child(2) {
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+      }
+      .slide .item:nth-child(3) {
+        left: 50%;
+      }
+      .slide .item:nth-child(4) {
+        left: calc(50% + 220px);
+      }
+      .slide .item:nth-child(5) {
+        left: calc(50% + 440px);
+      }
+      .slide .item:nth-child(n + 6) {
+        left: calc(50% 660px);
+        opacity: 0;
+      }
+      .item .content {
+        position: absolute;
+        top: 50%;
+        left: 100px;
+        width: 300px;
+        text-align: left;
+        color: #eee;
+        transform: translate(0, -50%);
+        font-family: system-ui;
+        display: none;
+      }
+
+      .slide .item:nth-child(2) .content {
+        display: block;
+      }
+
+      .content .name {
+        font-size: 40px;
+        text-transform: uppercase;
+        font-weight: bold;
+        opacity: 0;
+        animation: animate 1s ease-in-out 1 forwards;
+      }
+
+      .content .des {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: animate 1s ease-in-out 0.3s 1 forwards;
+      }
+
+      .content button {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        border-radius: 50px;
+        animation: animate 1s ease-in-out 0.6s 1 forwards;
+      }
+      .content button:hover{
+        background-color: black;
+        color: white;
+        transition: 0.2s;
+      }
+      @keyframes animate {
+        from {
+          opacity: 0;
+          transform: translate(0, 100px);
+          filter: blur(33px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translate(0);
+          filter: blur(0);
+        }
+      }
+
+      .button {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 20px;
+      }
+
+      .button button {
+        width: 40px;
+        height: 35px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        margin: 0 5px;
+        border: 1px solid #000;
+        transition: 0.3s;
+      }
+
+      .button button:hover {
+        background: #ababab;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <li>
+        <a href="IsometricMenu.html">Home
+          <span class="link-space">
+            <span class="fare">Home</span>
+            <span class="backk">Home</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="sodaBottle.html">3d Animation
+          <span class="link-space">
+            <span class="fare">3d Animation</span>
+            <span class="backk">3d Animation</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="ImageSlider.html">Image Slider
+          <span class="link-space">
+            <span class="fare">Image Slider</span>
+            <span class="backk">Image Slider</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="3dCube.html">3d Cube Effect
+          <span class="link-space">
+            <span class="fare">3d Cube Effect</span>
+            <span class="backk">3d Cube Effect</span>
+          </span>
+        </a>
+      </li>
+        </nav>
+    <div class="container">
+      <div class="slide">
+        <div class="item" style="background-image: url(Images/Dubai)">
+          <div class="content">
+            <div class="name">Dubai</div>
+            <div class="des">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Blanditiis, earum impedit doloremque nesciunt beatae perspiciatis
+              sapiente a sint accusantium corrupti!
+            </div>
+            <button>See More</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(Images/London.jpg)">
+          <div class="content">
+            <div class="name">London</div>
+            <div class="des">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Blanditiis, earum impedit doloremque nesciunt beatae perspiciatis
+              sapiente a sint accusantium corrupti!
+            </div>
+            <button>See More</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(Images/Pakistan.jpg)">
+          <div class="content">
+            <div class="name">Pakistan</div>
+            <div class="des">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Blanditiis, earum impedit doloremque nesciunt beatae perspiciatis
+              sapiente a sint accusantium corrupti!
+            </div>
+            <button>See More</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(Images/Malaysia.jpg)">
+          <div class="content">
+            <div class="name">Malaysia
+            </div>
+            <div class="des">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Blanditiis, earum impedit doloremque nesciunt beatae perspiciatis
+              sapiente a sint accusantium corrupti!
+            </div>
+            <button>See More</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(Images/Australia)">
+          <div class="content">
+            <div class="name">Australia</div>
+            <div class="des">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Blanditiis, earum impedit doloremque nesciunt beatae perspiciatis
+              sapiente a sint accusantium corrupti!
+            </div>
+            <button>See More</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(Images/London.jpg)">
+          <div class="content">
+            <div class="name">London</div>
+            <div class="des">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Blanditiis, earum impedit doloremque nesciunt beatae perspiciatis
+              sapiente a sint accusantium corrupti!
+            </div>
+            <button>See More</button>
+          </div>
+        </div>
+      
+      </div>
+
+      <div class="button">
+        <button class="prev"><i class="bi bi-arrow-left"></i></button>
+        <button class="next"><i class="bi bi-arrow-right"></i></button>
+      </div>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let next = document.querySelector(".next");
+      let prev = document.querySelector(".prev");
+
+      next.addEventListener("click", function () {
+        let items = document.querySelectorAll(".item");
+        document.querySelector(".slide").appendChild(items[0]);
+      });
+
+      prev.addEventListener("click", function () {
+        let items = document.querySelectorAll(".item");
+
+        document.querySelector(".slide").prepend(items[items.length - 1]);
+      });
+    </script>
+  </body>
+</html>

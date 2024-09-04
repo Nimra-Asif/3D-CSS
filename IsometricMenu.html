@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: linear-gradient(315deg, #b45575 0%, #57606f 74%);
+      }
+     
+      ul {
+        position: relative;
+        transform: skewY(-15deg);
+      }
+      ul li {
+        position: relative;
+        list-style: none;
+        width: 200px;
+        background: #3e3f46;
+        padding: 15px;
+        z-index: var(--i);
+        transition: 0.5s;
+      }
+      ul li:hover {
+        background: rgb(214, 69, 117);
+        transform: translateX(50px);
+        opacity: 0.9;
+      }
+      ul li::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -40px;
+        width: 40px;
+        height: 100%;
+        background-color: #2e3133;
+        transform-origin: right;
+        transform: skewY(45deg);
+        transition: 0.5s;
+      }
+      ul li:hover::before {
+        background: rgb(194, 71, 112);
+      }
+
+      ul li::after {
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        background: #35383e;
+        transform-origin: bottom;
+        transform: skewX(45deg);
+        transition: 0.5s;
+      }
+      ul li:hover::after {
+        background: rgb(199, 80, 120);
+      }
+
+      ul li a {
+        text-decoration: none;
+        color: rgb(214, 69, 117);
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: 0.5s;
+      }
+      ul li:hover a {
+        color: #fff;
+      }
+      ul li:last-child::after {
+        box-shadow: -100px 100px 20px rgba(0, 0, 0, 0.25);
+      }
+    </style>
+  </head>
+
+  <body>
+      <ul>
+        <li style="--i: 5"><a href="IsometricMenu.html">Home</a></li>
+        <li style="--i: 4"><a href="sodaBottle.html">3d Animation</a></li>
+        <li style="--i: 3"><a href="3dCube.html">3d Cube Effect</a></li>
+        <li style="--i: 2"><a href="ImageSlider.html">Image Slider</a></li>
+        <!-- <li style="--i: 1"><a href="#">Contact</a></li> -->
+      </ul>
+   
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
